@@ -1,0 +1,202 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.header{
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: darkslateblue;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+}
+.logo h1{
+    font-weight: 500;
+    color: aquamarine;
+    padding: 5px;
+}
+nav ul{
+    display: flex;
+}
+nav ul li{
+    margin: 5px;
+}
+nav ul li a{
+    color: aquamarine;
+}
+.input{
+    height: 1.4rem;
+    width: 12rem;
+    color: darkslateblue;
+}
+#boton-carrito{
+    font-size: 1.3rem;
+    background-color: darkslateblue;
+    border: none;
+    color: aquamarine;
+    padding: 5px 10px;
+    transition: all 0.3s;
+}
+#boton-carrito:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: aquamarine;
+}
+#boton-carrito:focus {
+    outline: none;
+}
+  
+img{
+    width: 95%;
+    border-radius: 50%;
+}
+
+#contenedor-servicios{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:  auto;
+    padding: 5rem 1rem;
+    max-width: 1200px;
+    height: auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+p{
+    line-height: 1.5;
+}
+.servicio{
+    max-width: 300px;
+    width: 100%;
+    
+    height: 100%;
+    margin-bottom: 1rem;
+    box-shadow: 3px 3px 3px ;
+}
+.card-img{
+    background-color: darkslateblue;
+    padding: 1rem;
+}
+.card-img .card-title{
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    
+}
+.contenido{
+    padding: 1rem;
+    color: #fff;
+    background-color: rgb(21, 12, 80);
+    font-size: 1rem;
+    height: auto;
+}
+.contenido .precio{
+    color: aquamarine;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.btn-añadir{
+    color: aquamarine;
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.modal-contenedor{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+}
+.modal-carrito{
+    background-color: rgb(21, 12, 80);
+    border: 1px solid darkslateblue;
+    min-width: 500px;
+    padding: 1rem;
+    margin-top: -100%;
+    position: relative;
+    transition: all 0.5s;
+}
+.modal-active .modal-carrito {
+    margin-top: 0;
+}
+
+.modal-carrito h3{
+    color: aquamarine;
+    padding: 5px;
+    font-weight: 500;
+}
+.modal-carrito #cerrar-carrito{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: rgb(225, 76, 65);
+    border: none;
+    background-color: rgb(21, 12, 80);
+}
+.modal-carrito #carritoCerrar:hover {
+    cursor: pointer;
+}
+.modal-carrito #carritoCerrar:focus {
+    outline: none;
+}
+.servicio-carrito{
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid darkslateblue;
+    color: #fff;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.boton-eliminar{
+    background-color: rgb(21, 12, 80);
+    color: rgb(225, 76, 65);
+    border: none;
+    font-size: 20px;
+}
+.boton-eliminar:hover {
+    cursor: pointer;
+}
+.boton-eliminar:focus {
+    outline: none;
+}
+.precio-servicio{
+    color: #fff;
+    margin-top: 5px;
+}
+#terminar #fin-compra{
+    font-size: 20px;
+    background-color: rgb(225, 76, 65);
+    border: none;
+    border-radius: 3px;
+    padding: 5px 8px;
+}
