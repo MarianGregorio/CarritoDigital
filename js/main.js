@@ -47,12 +47,12 @@ function mostrar(arr){
         div.className = 'servicio'
         div.innerHTML = `<div class="card">
                             <div class="card-img">
-                                <img src="${element.img}">
-                                <span class="card-title">${element.nombre}</span>
-                                <a id="boton${element.id}" class="btn-añadir"><i class="fa-solid fa-cart-plus"></i></a>
+                                <img src="${element.img}">  
                             </div>
                             <div class="contenido">
-                                <p>${element.descripcion}</p>
+                                <span class="card-title">${element.nombre}</span>
+                                <a id="boton${element.id}" class="btn-añadir"><i class="fa-solid fa-cart-plus"></i></a>
+                                <p class= "descrip">${element.descripcion}</p>
                                 <p>$${element.precio}</p>
                             </div>`
 
@@ -71,12 +71,18 @@ function agregarAlCarrito (id){
     if(!existe){
         carritoServicios.push(servicioAgregar)
         mostrarCarrito(servicioAgregar)
+        Swal.fire({
+            title: "Genial",
+            text: "El servicio ya a sido añadido al carrito",
+            icon: "success",
+            timer: 3000
+        })
     } else{
         Swal.fire({
             title: "Error",
             text: "Ya a seleccionado ese servicio.",
             icon: "error",
-            confirm: "ok"
+            timer: 3000
         })
     }
     actualizar()
@@ -97,10 +103,27 @@ function mostrarCarrito (servicioAgregar){
 
     let btnEliminar = document.getElementById(`eliminar${servicioAgregar.id}`)
     btnEliminar.addEventListener('click', () => {
-        btnEliminar.parentElement.remove()
-        carritoServicios = carritoServicios.filter(ele => ele.id !== servicioAgregar.id)
-        actualizar()
-        localStorage.setItem('carrito', JSON.stringify(carritoServicios))
+        Swal.fire({
+            title: "¿Estas seguro de eliminar este servicio?",
+            icon: "warning",
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            confirmButtonText: "Si"
+        }).then((result) => {
+            if(result.isConfirmed){
+                btnEliminar.parentElement.remove()
+                carritoServicios = carritoServicios.filter(ele => ele.id !== servicioAgregar.id)
+                actualizar()
+                Swal.fire({
+                    title: "Eliminado",
+                    icon: "success",
+                    text: "Este servicio ha sido eliminado"
+                })
+            }
+            localStorage.setItem('carrito', JSON.stringify(carritoServicios))
+        })
+        
+        
     })
 }
 
