@@ -72,7 +72,12 @@ function agregarAlCarrito (id){
         carritoServicios.push(servicioAgregar)
         mostrarCarrito(servicioAgregar)
     } else{
-        alert("Este servicio ya fue seleccionado!")
+        Swal.fire({
+            title: "Error",
+            text: "Ya a seleccionado ese servicio.",
+            icon: "error",
+            confirm: "ok"
+        })
     }
     actualizar()
 
