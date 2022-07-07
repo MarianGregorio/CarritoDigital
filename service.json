@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "nombre": "Digital Transforme",
+        "descripcion": "Construccion de negocios digitales, agiles, dinamicos y rentables.",
+        "precio": 400,
+        "img": "imagenes/digitaltransform.png"
+    },
+
+    {
+        "id": 2,
+        "nombre": "Digital Strategy",
+        "descripcion": "Potencie exponencialmente su negocio y obtenga resultados concretos.",
+        "precio": 400,
+        "img": "imagenes/digitalcomunication.png"
+    },
+
+    {
+        "id": 3,
+        "nombre": "Business Model",
+        "descripcion": "Descubrimiento de oportunidades y diseño de una estrategia integral de negocio.",
+        "precio": 300,
+        "img": "imagenes/bg_quienes.png"
+    },
+
+    {
+        "id": 4,
+        "nombre": "Customer experience",
+        "descripcion": "Fidelización del cliente a través de experiencias hechas a medida.",
+        "precio": 200,
+        "img": "imagenes/ecommerce_1.png"
+    }
+ 
+
+]

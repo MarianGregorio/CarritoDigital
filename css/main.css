@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 li{
@@ -201,8 +202,10 @@ p{
 }
 #terminar #fin-compra{
     font-size: 20px;
-    background-color: rgb(225, 76, 65);
+    color: #fff;
+    background-color: aquamarine;
     border: none;
     border-radius: 3px;
     padding: 5px 8px;
+    cursor: pointer;
 }

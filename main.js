@@ -1,4 +1,4 @@
- class Servicio{
+/*  class Servicio{
     constructor(id, nombre, descripcion, precio, img){
         this.id = Number(id),
         this.nombre = nombre,
@@ -6,15 +6,19 @@
         this.precio = precio,
         this.img = img
     }
-}
+} */
 
-const arrayServicios = [];
+import { getData } from "./getData.js";
+
+
+
 let carritoServicios = [];
+const arrayServicios = await getData();
 
-arrayServicios.push(new Servicio(1,"Digital Transforme", "Construccion de negocios digitales, agiles, dinamicos y rentables.", 400,'imagenes/digitaltransform.png'));
+/* arrayServicios.push(new Servicio(1,"Digital Transforme", "Construccion de negocios digitales, agiles, dinamicos y rentables.", 400,'imagenes/digitaltransform.png'));
 arrayServicios.push(new Servicio(2, "Digital Strategy", "Potencie exponencialmente su negocio y obtenga resultados concretos.", 400, 'imagenes/digitalcomunication.png'));
 arrayServicios.push(new Servicio(3, "Business Model", "Descubrimiento de oportunidades y diseño de una estrategia integral de negocio." , 300 , 'imagenes/bg_quienes.png'));
-arrayServicios.push(new Servicio(4, "Customer experience", "Fidelización del cliente a través de experiencias hechas a medida." , 200 , 'imagenes/ecommerce_1.png'));
+arrayServicios.push(new Servicio(4, "Customer experience", "Fidelización del cliente a través de experiencias hechas a medida." , 200 , 'imagenes/ecommerce_1.png')); */
 
 const contenedorServicios = document.getElementById('contenedor-servicios');
 const contenedorCarrito = document.getElementById('carrito-contenedor');
@@ -34,15 +38,16 @@ buscador.addEventListener('input', (e) => {
     mostrar(busqueda)
 })
 
-const ordenarMenorMayor = () => {
+const ordenarMenorMayor =  () => {
     arrayServicios.sort((a,b) => a.precio - b.precio);
     mostrar(arrayServicios);
-}
+} 
 
 // INICIO DEL Ecommerce
-function mostrar(arr){
+
+async function mostrar(){
     contenedorServicios .innerHTML = ""
-    arr.forEach(element => {
+    arrayServicios.forEach(element => {
         let div = document.createElement('div')
         div.className = 'servicio'
         div.innerHTML = `<div class="card">
@@ -65,7 +70,7 @@ function mostrar(arr){
     });
 }
 
-function agregarAlCarrito (id){
+ function agregarAlCarrito (id){
     let servicioAgregar = arrayServicios.find(item => item.id === id)
     let existe = carritoServicios.find(item => item.id === id)
     if(!existe){
@@ -151,5 +156,5 @@ function recuperacion(){
     }
 }
 
-ordenarMenorMayor(); 
+ordenarMenorMayor();
 recuperacion();
