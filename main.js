@@ -1,12 +1,4 @@
-/*  class Servicio{
-    constructor(id, nombre, descripcion, precio, img){
-        this.id = Number(id),
-        this.nombre = nombre,
-        this.descripcion = descripcion,
-        this.precio = precio,
-        this.img = img
-    }
-} */
+
 
 import { getData } from "./getData.js";
 
@@ -15,15 +7,12 @@ import { getData } from "./getData.js";
 let carritoServicios = [];
 const arrayServicios = await getData();
 
-/* arrayServicios.push(new Servicio(1,"Digital Transforme", "Construccion de negocios digitales, agiles, dinamicos y rentables.", 400,'imagenes/digitaltransform.png'));
-arrayServicios.push(new Servicio(2, "Digital Strategy", "Potencie exponencialmente su negocio y obtenga resultados concretos.", 400, 'imagenes/digitalcomunication.png'));
-arrayServicios.push(new Servicio(3, "Business Model", "Descubrimiento de oportunidades y diseño de una estrategia integral de negocio." , 300 , 'imagenes/bg_quienes.png'));
-arrayServicios.push(new Servicio(4, "Customer experience", "Fidelización del cliente a través de experiencias hechas a medida." , 200 , 'imagenes/ecommerce_1.png')); */
+
 
 const contenedorServicios = document.getElementById('contenedor-servicios');
 const contenedorCarrito = document.getElementById('carrito-contenedor');
 
-const botonTerminar = document.getElementById('terminar');
+
 const finCompra = document.getElementById('fin-compra');
 
 const contadorCarrito = document.getElementById('contadorCarrito');
@@ -32,11 +21,14 @@ const precioFinal = document.getElementById('precio-final');
 const buscador = document.getElementById('search');
 
 
+// -----------Funcion de buscador--------------//
 
 buscador.addEventListener('input', (e) => {
-    let busqueda= arrayServicios.filter(elem => elem.nombre.toLowerCase().includes(e.target.value.toLowerCase()))
-    mostrar(busqueda)
+    let busqueda= arrayServicios.filter(elem => elem.nombre.toLowerCase().includes(e.target.value.toLowerCase()));
+    mostrar(busqueda);
 })
+
+// -----------Ordenamos segundo el precio del producto/servicio--------------//
 
 const ordenarMenorMayor =  () => {
     arrayServicios.sort((a,b) => a.precio - b.precio);
@@ -45,9 +37,11 @@ const ordenarMenorMayor =  () => {
 
 // INICIO DEL Ecommerce
 
-async function mostrar(){
+// -----------Funcion para mostrar los servicios--------------//
+
+async function mostrar(array){
     contenedorServicios .innerHTML = ""
-    arrayServicios.forEach(element => {
+    array.forEach(element => {
         let div = document.createElement('div')
         div.className = 'servicio'
         div.innerHTML = `<div class="card">
@@ -69,6 +63,8 @@ async function mostrar(){
         })
     });
 }
+
+// -----------Funcion para agregar al carrito--------------//
 
  function agregarAlCarrito (id){
     let servicioAgregar = arrayServicios.find(item => item.id === id)
@@ -95,6 +91,7 @@ async function mostrar(){
     localStorage.setItem('carrito', JSON.stringify(carritoServicios))
 }
 
+// -----------Funcion para mostrar el carrito--------------//
 
 function mostrarCarrito (servicioAgregar){
     let div = document.createElement('div')
@@ -105,15 +102,17 @@ function mostrarCarrito (servicioAgregar){
                         <i class="fa-solid fa-trash-can"></i>
                     </button>`
     contenedorCarrito.appendChild(div)
-
+    //------Añadimos dentro la opcion para eliminar un producto-------//
     let btnEliminar = document.getElementById(`eliminar${servicioAgregar.id}`)
     btnEliminar.addEventListener('click', () => {
         Swal.fire({
             title: "¿Estas seguro de eliminar este servicio?",
             icon: "warning",
             showCancelButton: true,
+            confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: "Si"
+            confirmButtonText: "Si",
+            cancelButtonText: "Cancelar"
         }).then((result) => {
             if(result.isConfirmed){
                 btnEliminar.parentElement.remove()
@@ -132,18 +131,41 @@ function mostrarCarrito (servicioAgregar){
     })
 }
 
+// -----------Actualizamos el carrito y su contador--------------//
+
 function actualizar(){
     contadorCarrito.innerHTML = carritoServicios.length
     precioFinal.innerHTML = carritoServicios.reduce((acc,el) => acc + el.precio, 0)
 }
 
-function vaciarCarrito(){
-    carritoServicios = []
-    contenedorCarrito.innerHTML = ""
-    actualizar()  
+// -----------Funcion fin de compra y limpiamos el carrito--------------//
+
+function finalizarCompra(){
+    let hayServicio = carritoServicios.some((el) => el)
+    if (!hayServicio){
+        Swal.fire({
+            title: "Lo siento",
+            text: "No ha seleccionado ninguno de nuestros servicios",
+            icon: "warning",
+            timer: 3000
+        })
+    } else {
+        carritoServicios = []
+        contenedorCarrito.innerHTML = ""
+        actualizar()
+        Swal.fire({
+            title: "Genial",
+            text: "Gracias por su compra",
+            icon: "success",
+            timer: 3000
+        })
+    }
+    localStorage.setItem('carrito', JSON.stringify(carritoServicios))  
 }
 
-finCompra.addEventListener('click', vaciarCarrito);
+finCompra.addEventListener('click', finalizarCompra);
+
+// -----------Funcion para recuperar el contenido del localStorage--------------//
 
 function recuperacion(){
     let recuperarLS = JSON.parse(localStorage.getItem('carrito'))
@@ -155,6 +177,9 @@ function recuperacion(){
          })
     }
 }
+
+
+// LLamada a la funcion
 
 ordenarMenorMayor();
 recuperacion();

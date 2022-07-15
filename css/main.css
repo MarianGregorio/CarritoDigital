@@ -12,13 +12,23 @@ a{
     text-decoration: none;
 }
 
+body{
+    background-image: url(../imagenes/maximalfocus-0n4jhVGS4zs-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover; 
+}
 .header{
-    height: 4rem;
+    height: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: darkslateblue;
+    background-color: rgb(27, 27, 50);
     position: sticky;
     top: 0;
     z-index: 10000;
@@ -38,13 +48,18 @@ nav ul li a{
     color: aquamarine;
 }
 .input{
-    height: 1.4rem;
+    height: 1.8rem;
     width: 12rem;
-    color: darkslateblue;
+    border: 1px solid rgb(27, 27, 50);
+    text-align: start;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
+
 #boton-carrito{
     font-size: 1.3rem;
-    background-color: darkslateblue;
+    background-color: rgb(27, 27, 50);
     border: none;
     color: aquamarine;
     padding: 5px 10px;
@@ -53,7 +68,7 @@ nav ul li a{
 #boton-carrito:hover{
     cursor: pointer;
     color: #fff;
-    background-color: aquamarine;
+    background-color: rgb(93, 196, 161);
 }
 #boton-carrito:focus {
     outline: none;
@@ -61,13 +76,15 @@ nav ul li a{
   
 img{
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    max-height: 300px;
+    object-fit: cover;
 }
 
 #contenedor-servicios{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     margin:  auto;
@@ -83,16 +100,17 @@ p{
 .servicio{
     max-width: 300px;
     width: 100%;
-    
+    object-fit: cover;
     height: 100%;
-    margin-bottom: 1rem;
-    box-shadow: 3px 3px 3px ;
+    margin-bottom: 2rem;
+    box-shadow: 5px 5px 5px ;
 }
 .card-img{
     width: 100%;
     height: 100%;
     background-color: darkslateblue;
     padding: 1rem;
+    
 }
  .card-title{
     font-size: 1.3rem;
@@ -208,4 +226,87 @@ p{
     border-radius: 3px;
     padding: 5px 8px;
     cursor: pointer;
+}
+
+.form-title{
+    color: #f3f3f3;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px rgba(0 0 0 / 40%);
+}
+.form-description{
+    color: #f3f3f3;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 1px rgba(0 0 0 / 40%);
+}
+
+#survey-form{
+    background-color: rgba(27, 27, 50, 0.8);
+    padding: 2.5rem;
+    margin: 1rem;
+    border-radius: 0.25rem;
+    max-width: 40rem;
+}
+.form-group{
+    margin: 0 auto 1.25rem auto;
+    padding: 0.25rem;
+}
+.label{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    height: 2.3rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.submit-button{
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: aquamarine;
+    color: inherit;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.contenedor-form{
+    display: flex;
+    justify-content: center;
+}
+.contenedor-img{
+    background-image: linear-gradient(130deg,#509fc95d,#e83b5877);
+}
+
+#footer{
+    background-color: rgb(27, 27, 50);
+    color: #f3f3f3;
+    text-align: center;
+    padding: 0.8rem;
+}
+#footer h5{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+#footer p{
+    font-style: italic;
 }

@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/fa41d02dd8.js" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <title>MG.Digital</title>
 </head>
 <body>
     <header class="header">
@@ -19,22 +19,23 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Servicios</a></li>
+                <li><a href="#survey-form">Contacto</a></li>
+                <li><a href="#contenedor-servicios">Servicios</a></li>
             </ul>
         </nav>
         <button id="boton-carrito">Carrito<i class="fa-solid fa-cart-arrow-down"></i><span id="contadorCarrito">0</span></button>
     </header>
-    <div class="container">
+
+    <div class="contenedor-img">
         <main id="contenedor-servicios">
-            
+            <!-- Creo el contenido mediante JavaScript -->
         </main>
         <section class="modal-contenedor">
             <div class="modal-carrito">
                 <h3>Carrito</h3>
                 <button id="cerrar-carrito"><i class="fa-solid fa-rectangle-xmark"></i></button>
                 <div id="carrito-contenedor">
-                   
+                     <!-- Creo el contenido mediante JavaScript -->
                 </div>
                 <p class="precio-servicio">Precio Final: $ <span id="precio-final">0</span></p>
                 <div id="terminar" style="display: flex; justify-content: flex-end;">
@@ -42,12 +43,56 @@
                 </div>
             </div>
         </section>
+        <section>
+            <h4 class="form-title">
+                Te invitamos a transformar tu futuro en esta era digital
+            </h4>
+            <p class="form-description">
+                Dejanos tu contacto por si deseas mas informacion!
+            </p>
+        </section>
+        <div class="contenedor-form">
+            <form id="survey-form">
+                <div class="form-group">
+                    <label id="name-label" class="label" for="name">Nombre</label>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Ingrese su nombre" required>
+                </div>
+                <div class="form-group">
+                    <label id="apellido-label" class="label" for="apellido">Apellido</label>
+                    <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese su apellido" required>
+                </div>
+                <div class="form-group">
+                    <label id="email-label" class="label" for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su Email" required>
+                </div>
+                <div class="form-group">
+                    <p class="label">¿Sobre cual de nuestros servicios desea más información</p>
+                    <select name="role" id="dropdown" class="form-control" required>
+                        <option disabled selected value>Selecciona un servicio</option>
+                        <option value="Customer">Customer experience</option>
+                        <option value="Business">Business Model</option>
+                        <option value="Transforme">Digital Transforme</option>
+                        <option value="Strategy">Digital Strategy</option>
+                        <option value="other">Deseo otro tipo de informacion</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="submit" class="submit-button">Enviar</button>
+                </div>
+            </form>
+        </div>
     </div>
+    <footer id="footer">
+        <h5>Agencia de transformacion digital!</h5>
+        <p>Desarrollado por: marianogregorio95@gmail.com</p>
+    </footer>
 
+    
 
     
     <script src="main.js" type="module"></script>
     <script src="modal.js" type="module"></script>
+    <script src="form.js"></script>
     <script src="getData.js" type="module"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
         "nombre": "Digital Strategy",
         "descripcion": "Potencie exponencialmente su negocio y obtenga resultados concretos.",
         "precio": 400,
-        "img": "imagenes/digitalcomunication.png"
+        "img": "imagenes/ecommerce_2.png"
     },
 
     {
@@ -29,6 +29,14 @@
         "descripcion": "Fidelización del cliente a través de experiencias hechas a medida.",
         "precio": 200,
         "img": "imagenes/ecommerce_1.png"
+    },
+
+    {
+        "id": 5,
+        "nombre": "SEO",
+        "descripcion": "Posicionamiento organico en motores de busqueda.",
+        "precio": 300,
+        "img": "imagenes/crecimiento.png"
     }
  
 
